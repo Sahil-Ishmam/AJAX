@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Ajax and using Fetch</title>
+</head>
+<body>
+    
+
+    <script>
+        // get method
+        fetch('https://crud.teamrabbil.com/api/v1/ReadProduct')
+        .then(response =>response.json())
+        .then(data => console.log(data));
+
+
+        // post Method
+
+        fetch('https://crud.teamrabbil.com/api/v1/CreateProduct',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                "Img":"https://www.google.com",
+                "ProductCode":"123",
+                "ProductName":"Test Product",
+                "Qty":10,
+                "TotalPrice":1000,
+                "UnitPrice":100
+            })
+
+        })
+        .then(response => response.json())
+        .then(data => console.log(data)); 
+
+
+        // It seems that axios is more user friendly than fetch.
+
+    </script>
+</body>
+</html>
